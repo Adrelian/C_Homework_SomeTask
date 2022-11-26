@@ -83,57 +83,89 @@
 
 // 30. Показать кубы чисел, заканчивающихся на четную цифру
 
-double [] CreatArray()
-// Создаём массив из случайных и случайного размера
-{
-    //Задаём случайны размер
-    int size = new Random().Next(5, 10); 
-    double [] myArray = new double [size];
+// double [] CreatArray()
+// // Создаём массив из случайных и случайного размера
+// {
+//     //Задаём случайны размер
+//     int size = new Random().Next(5, 10); 
+//     double [] myArray = new double [size];
 
-    // Задаём массив
-    Console.Write("Массив -> ");
-    for (int i = 0; i < size; i++)
-    {
-        myArray[i] = new Random().Next(1, 100);
-    }
+//     // Задаём массив
+//     Console.Write("Массив -> ");
+//     for (int i = 0; i < size; i++)
+//     {
+//         myArray[i] = new Random().Next(1, 100);
+//     }
     
-    // Отображаем массив
-    for (int i = 0; i < size; i++)
-    {
-        Console.Write($" {myArray[i] + ","}");
-    }
-    Console.WriteLine();
-    return myArray;
-}
+//     // Отображаем массив
+//     for (int i = 0; i < size; i++)
+//     {
+//         Console.Write($" {myArray[i] + ","}");
+//     }
+//     Console.WriteLine();
+//     return myArray;
+// }
 
-// Создаём новый массив из кубов чисел прошлого массива
-double[] CubeNumber (double [] cubeArray)
+// // Создаём новый массив из кубов чисел прошлого массива
+// double[] CubeNumber (double [] cubeArray)
+// {
+//     // Возводим каждый элемент в куб
+//     for(int i = 0; i < cubeArray.Length; i++)
+//     {
+//         cubeArray[i] = Math.Pow(cubeArray[i], 3);
+//     }
+//     // Отображаем массив
+//     Console.Write("Массив -> ");
+//     for (int i = 0; i < cubeArray.Length; i++)
+//     {
+//         Console.Write($" {cubeArray[i] + ","}");
+//     }
+//     Console.WriteLine();
+//     return cubeArray;
+// }
+
+// // Поиск элементов с чётным последним числом
+// void findEvenLastNumber(double [] cubeArray)
+// {
+//     for(int i = 0; i < cubeArray.Length; i++)
+//     {
+//         if (cubeArray[i] % 2 == 0) 
+//         Console.WriteLine($"Число {cubeArray[i]} - цифра {cubeArray[i]%10} чётное");
+//     }
+// }
+
+// double [] myArray = CreatArray();
+// double [] cube = CubeNumber(myArray);
+// findEvenLastNumber(cube);
+
+// 43. Написать программу преобразования десятичного числа в двоичное
+
+void decimalToBool(int number)
 {
-    // Возводим каждый элемент в куб
-    for(int i = 0; i < cubeArray.Length; i++)
+    // Двоичное число, но задом наперёд
+    int boolNumber = 0; // двоичное число
+    int numberForChange = number; // создаём число для изменений, что бы введёное не
+    while (numberForChange>0)
     {
-        cubeArray[i] = Math.Pow(cubeArray[i], 3);
+        int numberBool = (numberForChange % 2);
+        numberForChange = numberForChange / 2;
+        boolNumber = boolNumber * 10 + numberBool;
     }
-    // Отображаем массив
-    Console.Write("Массив -> ");
-    for (int i = 0; i < cubeArray.Length; i++)
+
+    // Развород двоичного числа
+    int newBoolNumber = 0; // новопе (правильное) двоичное число
+    int wronghtBoolNumber = boolNumber; // присваиваем неверному числу (для изменения) полученное число из цикла выше
+
+    // После каждой иттерации уменьшаем неверное число на 1 разряд
+    while (wronghtBoolNumber > 0)
     {
-        Console.Write($" {cubeArray[i] + ","}");
+        int alongBoolNumber = wronghtBoolNumber % 10; // берём правое число
+        wronghtBoolNumber = wronghtBoolNumber / 10; // уменьшаем разряд на 1
+        newBoolNumber = newBoolNumber * 10 + alongBoolNumber; //собираем новое двоичное число ПРАВИЛЬНОЕ
     }
-    Console.WriteLine();
-    return cubeArray;
+    Console.WriteLine($"{number} -> {newBoolNumber}");
 }
 
-// Поиск элементов с чётным последним числом
-void findEvenLastNumber(double [] cubeArray)
-{
-    for(int i = 0; i < cubeArray.Length; i++)
-    {
-        if (cubeArray[i] % 2 == 0) 
-        Console.WriteLine($"Число {cubeArray[i]} - цифра {cubeArray[i]%10} чётное");
-    }
-}
-
-double [] myArray = CreatArray();
-double [] cube = CubeNumber(myArray);
-findEvenLastNumber(cube);
+Console.Write("Введите число: ");
+int decNumber = Convert.ToInt32(Console.ReadLine());
+decimalToBool(decNumber);
