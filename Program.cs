@@ -62,22 +62,78 @@
 
 // 41. Выяснить являются ли три числа сторонами треугольника 
 
-void inputLengthTriangleSide(int a, int b, int c)
+// void inputLengthTriangleSide(int a, int b, int c)
+// {
+//     if ((a+b>c) && (b+c>a) && (c+a)>b) 
+//     {
+//         Console.WriteLine($"Треугольник со сторонами {a}, {b}, {c} существует");
+//     }
+//     else Console.WriteLine($"Треугольник со сторонами {a}, {b}, {c} НЕ существует");
+//     }
+
+// Console.Write("Введите сторону а: ");
+// int a = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Введите сторону b: ");
+// int b = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Введите сторону c: ");
+// int c = Convert.ToInt32(Console.ReadLine());
+
+// inputLengthTriangleSide(a, b, c);
+
+
+// 30. Показать кубы чисел, заканчивающихся на четную цифру
+
+double [] CreatArray()
+// Создаём массив из случайных и случайного размера
 {
-    if ((a+b>c) && (b+c>a) && (c+a)>b) 
+    //Задаём случайны размер
+    int size = new Random().Next(5, 10); 
+    double [] myArray = new double [size];
+
+    // Задаём массив
+    Console.Write("Массив -> ");
+    for (int i = 0; i < size; i++)
     {
-        Console.WriteLine($"Треугольник со сторонами {a}, {b}, {c} существует");
+        myArray[i] = new Random().Next(1, 100);
     }
-    else Console.WriteLine($"Треугольник со сторонами {a}, {b}, {c} НЕ существует");
+    
+    // Отображаем массив
+    for (int i = 0; i < size; i++)
+    {
+        Console.Write($" {myArray[i] + ","}");
     }
+    Console.WriteLine();
+    return myArray;
+}
 
-Console.Write("Введите сторону а: ");
-int a = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите сторону b: ");
-int b = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите сторону c: ");
-int c = Convert.ToInt32(Console.ReadLine());
+// Создаём новый массив из кубов чисел прошлого массива
+double[] CubeNumber (double [] cubeArray)
+{
+    // Возводим каждый элемент в куб
+    for(int i = 0; i < cubeArray.Length; i++)
+    {
+        cubeArray[i] = Math.Pow(cubeArray[i], 3);
+    }
+    // Отображаем массив
+    Console.Write("Массив -> ");
+    for (int i = 0; i < cubeArray.Length; i++)
+    {
+        Console.Write($" {cubeArray[i] + ","}");
+    }
+    Console.WriteLine();
+    return cubeArray;
+}
 
-inputLengthTriangleSide(a, b, c);
+// Поиск элементов с чётным последним числом
+void findEvenLastNumber(double [] cubeArray)
+{
+    for(int i = 0; i < cubeArray.Length; i++)
+    {
+        if (cubeArray[i] % 2 == 0) 
+        Console.WriteLine($"Число {cubeArray[i]} - цифра {cubeArray[i]%10} чётное");
+    }
+}
 
-
+double [] myArray = CreatArray();
+double [] cube = CubeNumber(myArray);
+findEvenLastNumber(cube);
