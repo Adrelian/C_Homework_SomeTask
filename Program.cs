@@ -152,7 +152,7 @@ void decimalToBool(int number)
         boolNumber = boolNumber * 10 + numberBool;
     }
 
-    // Развород двоичного числа
+    // Разворот двоичного числа
     int newBoolNumber = 0; // новопе (правильное) двоичное число
     int wronghtBoolNumber = boolNumber; // присваиваем неверному числу (для изменения) полученное число из цикла выше
 
