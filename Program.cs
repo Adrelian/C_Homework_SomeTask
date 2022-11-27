@@ -140,32 +140,47 @@
 
 // 43. Написать программу преобразования десятичного числа в двоичное
 
-void decimalToBool(int number)
+// void decimalToBool(int number)
+// {
+//     // Двоичное число, но задом наперёд
+//     int boolNumber = 0; // двоичное число
+//     int numberForChange = number; // создаём число для изменений, что бы введёное не
+//     while (numberForChange>0)
+//     {
+//         int numberBool = (numberForChange % 2);
+//         numberForChange = numberForChange / 2; 
+//         boolNumber = boolNumber * 10 + numberBool; // прибавляем число в конец
+//     }
+
+//     // Разворот двоичного числа
+//     int newBoolNumber = 0; // новое (правильное) двоичное число
+//     int wronghtBoolNumber = boolNumber; // присваиваем неверному числу (для изменения) полученное число из цикла выше
+
+//     // После каждой иттерации уменьшаем неверное число на 1 разряд
+//     while (wronghtBoolNumber > 0)
+//     {
+//         int alongBoolNumber = wronghtBoolNumber % 10; // берём правое число
+//         wronghtBoolNumber = wronghtBoolNumber / 10; // уменьшаем разряд на 1
+//         newBoolNumber = newBoolNumber * 10 + alongBoolNumber; //собираем новое двоичное число ПРАВИЛЬНОЕ
+//     }
+//     Console.WriteLine($"{number} -> {newBoolNumber}");
+// }
+
+// Console.Write("Введите число: ");
+// int decNumber = Convert.ToInt32(Console.ReadLine());
+// decimalToBool(decNumber);
+
+// 42. Определить сколько чисел больше 0 введено с клавиатуры
+
+void findZero()
 {
-    // Двоичное число, но задом наперёд
-    int boolNumber = 0; // двоичное число
-    int numberForChange = number; // создаём число для изменений, что бы введёное не
-    while (numberForChange>0)
+    Console.WriteLine("Введите ваше текст: ");
+    var N = Console.Read(); // Записать знак в переменнуб для сравнения
+    int counter = 0; // счетчик нулей в строке
+    for (int i = 0; )
     {
-        int numberBool = (numberForChange % 2);
-        numberForChange = numberForChange / 2;
-        boolNumber = boolNumber * 10 + numberBool;
+        counter++;
     }
-
-    // Разворот двоичного числа
-    int newBoolNumber = 0; // новопе (правильное) двоичное число
-    int wronghtBoolNumber = boolNumber; // присваиваем неверному числу (для изменения) полученное число из цикла выше
-
-    // После каждой иттерации уменьшаем неверное число на 1 разряд
-    while (wronghtBoolNumber > 0)
-    {
-        int alongBoolNumber = wronghtBoolNumber % 10; // берём правое число
-        wronghtBoolNumber = wronghtBoolNumber / 10; // уменьшаем разряд на 1
-        newBoolNumber = newBoolNumber * 10 + alongBoolNumber; //собираем новое двоичное число ПРАВИЛЬНОЕ
-    }
-    Console.WriteLine($"{number} -> {newBoolNumber}");
+    Console.WriteLine($"Кол-во нулей в строке {counter}");
 }
-
-Console.Write("Введите число: ");
-int decNumber = Convert.ToInt32(Console.ReadLine());
-decimalToBool(decNumber);
+findZero();
